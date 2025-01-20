@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 using OnlineStore.Server.Data;
+using OnlineStore.Server.Data.Repositories;
 
 namespace OnlineStore.Server
 {
@@ -9,6 +11,17 @@ namespace OnlineStore.Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            string connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
+            builder.Services.AddDbContext<StoreContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            builder.Services.AddScoped<CartItemsRepository>();
+            builder.Services.AddScoped<CartsRepository>();
+            builder.Services.AddScoped<CustomersRepository>();
+            builder.Services.AddScoped<OrderItemsRepository>();
+            builder.Services.AddScoped<OrdersRepository>();
+            builder.Services.AddScoped<ProductsRepository>();
 
             // Add services to the container.
             builder.Services.AddRazorPages();

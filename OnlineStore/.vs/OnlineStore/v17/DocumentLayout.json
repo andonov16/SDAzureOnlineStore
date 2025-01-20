@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Program.cs",
-              "RelativeDocumentMoniker": "OnlineStore.Server\\Program.cs",
-              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Program.cs",
-              "RelativeToolTip": "OnlineStore.Server\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T01:40:01.089Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
