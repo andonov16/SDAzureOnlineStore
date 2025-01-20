@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\data\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\data\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StoreContext.cs",
+              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Data\\StoreContext.cs",
+              "RelativeDocumentMoniker": "OnlineStore.Server\\Data\\StoreContext.cs",
+              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Data\\StoreContext.cs",
+              "RelativeToolTip": "OnlineStore.Server\\Data\\StoreContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T01:25:25.779Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
