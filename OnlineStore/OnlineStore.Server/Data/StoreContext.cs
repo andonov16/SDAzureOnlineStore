@@ -62,6 +62,10 @@ namespace OnlineStore.Server.Data
                 .HasMany<OrderItem>()
                 .WithOne(oi => oi.Product)
                 .HasForeignKey(oi => oi.ProductId);
+
+            // Seeding
+            DataSeeder dataSeeder = new DataSeeder(modelBuilder);
+            dataSeeder.Seed();
         }
     }
 }

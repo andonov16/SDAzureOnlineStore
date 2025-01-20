@@ -5,6 +5,9 @@ namespace OnlineStore.Server.Model
 {
     public class Order:BaseEntity
     {
+        [Required]
+        public string OrderNumber { get; set; }
+        [Required]
         public DateTime OrderDate { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
