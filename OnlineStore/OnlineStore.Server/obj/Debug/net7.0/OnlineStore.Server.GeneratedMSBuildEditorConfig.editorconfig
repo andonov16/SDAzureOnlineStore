@@ -24,12 +24,24 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/CustomerCredentials.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJDcmVkZW50aWFscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/ProductComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/Store.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RvcmUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Shared/SurveyPrompt.razor]

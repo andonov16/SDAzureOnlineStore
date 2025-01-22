@@ -56,10 +56,10 @@ namespace OnlineStore.Server.Data.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task<ICollection<T>> FindAsync(Func<T, bool> check)
+        public async Task<T?> FindAsync(Func<T, bool> check)
         {
             var allItems = await ReadAllAsync();
-            return allItems.Where(check).ToList();
+            return allItems.Where(check).FirstOrDefault();
         }
         public virtual async Task<ICollection<T>> FindFullAsync(Func<T, bool> check)
         {

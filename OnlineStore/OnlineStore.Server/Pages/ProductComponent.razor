@@ -1,0 +1,41 @@
+﻿@page "/product/details"
+@using OnlineStore.Server.Model
+@inject IJSRuntime JsRuntime
+@inject NavigationManager Navigation
+
+
+<h3>Product Details</h3>
+
+<div class="product-details">
+    <h4>@Product.Name</h4>
+    <p><strong>Category:</strong> @Product.Category</p>
+    <p><strong>Description:</strong> @Product.Description</p>
+    <p><strong>Price:</strong> @string.Format("{0:C}", Product.Price)</p>
+    <p><strong>Quantity Available:</strong> @Product.Quantity</p>
+
+    <div class="quantity-input">
+        <label for="quantity">Quantity to Add:</label>
+        <input type="number" id="quantity" min="1" max="@Product.Quantity" @bind="_quantityToAdd" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="AddToCart">Add to Cart</button>
+</div>
+
+
+@code {
+    [Parameter] public Product Product { get; set; }
+
+    private int _quantityToAdd = 1;
+
+    private async Task AddToCart()
+    {
+        if (_quantityToAdd <= 0 || _quantityToAdd > Product.Quantity)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", $"Sorry, only {Product.Quantity} items are available in stock.");
+            return;
+        }
+
+        //await CartService.AddToCart(Product, _quantityToAdd);
+        //Navigation.NavigateTo("/cart");
+    }
+}

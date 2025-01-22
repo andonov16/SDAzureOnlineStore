@@ -1,0 +1,82 @@
+﻿@page "/store"
+@inject NavigationManager Navigation
+@using System.Text.Json
+@using OnlineStore.Server.Data.Repositories
+@using OnlineStore.Server.Model
+@inject ProductsRepository productRepo;
+
+@if(Customer != null)
+{
+    <h3>Welcome, @Customer.FullName</h3>
+    <p>Email: @Customer.Email</p>
+    <p>Address: @Customer.Address</p>
+}
+
+
+<h3>Our Products</h3>
+
+@if(products != null)
+{
+    <div class="product-list">
+        @foreach (var product in products)
+        {
+            <div class="product-details">
+                <h4>@product.Name</h4>
+                <p><strong>Category:</strong> @product.Category</p>
+                <p><strong>Description:</strong> @product.Description</p>
+                <p><strong>Price:</strong> @string.Format("{0:C}", product.Price)</p>
+                <p><strong>Quantity Available:</strong> @product.Quantity</p>
+
+@*                 <div class="quantity-input">
+                    <label for="quantity-@product.Id">Quantity to Add:</label>
+                    <input type="number" id="quantity-@product.Id" min="1" max="@product.Quantity" @bind="_quantityToAdd[product.Id]" class="form-control" />
+                </div> *@
+
+                <button class="btn btn-primary" @onclick="() => AddToCart(product)">Add to Cart</button>
+            </div>
+        }
+    </div>
+}
+
+
+
+@code {
+    public Customer Customer { get; set; }
+    private ICollection<Product>? products;
+    private Dictionary<int, int> _quantityToAdd = new Dictionary<int, int>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = Navigation.Uri;
+        var uriQuery = new Uri(uri).Query;
+        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uriQuery);
+
+        // Retrieve the serialized customer JSON string from query parameters
+        if (queryParams.TryGetValue("customer", out var customerJson))
+        {
+            var decodedCustomerJson = Uri.UnescapeDataString(customerJson);
+            Customer = JsonSerializer.Deserialize<Customer>(decodedCustomerJson);
+        }
+
+        products = await productRepo.ReadAllFullAsync();
+        if (products == null || products.Count == 0)
+        {
+            Console.WriteLine("No products found.");
+        }
+    }
+
+
+    private async Task AddToCart(Product product)
+    {
+        if (_quantityToAdd.ContainsKey(product.Id))
+        {
+            var quantity = _quantityToAdd[product.Id];
+
+            // Here, you would call your cart service to add the product to the cart
+            // await CartService.AddToCart(product, quantity);
+
+            // For now, just logging the action
+            Console.WriteLine($"Added {quantity} of {product.Name} to the cart.");
+        }
+    }
+}
