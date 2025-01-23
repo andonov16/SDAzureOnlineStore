@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineStore.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07e814e31e6e5d3f9e462fb8fab27a72f2ce094e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7497e2bcc3ba5079091be6e6745492efa0e40633")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineStore.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineStore.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -135,7 +135,14 @@
             };
 
         this.Customer.Cart = cart;
-        await cartRepo.CreateAsync(cart);
-        await customerRepo.UpdateAsync(this.Customer);
+        try
+        {
+
+            await customerRepo.UpdateAsync(this.Customer);
+            await cartRepo.CreateAsync(cart);
+        }
+        catch (Exception)
+        {
+        }
     }
 }
