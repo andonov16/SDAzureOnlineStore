@@ -1,4 +1,4 @@
-﻿@page "/store"
+﻿@page "/store/{CustomerId:int}"
 @inject NavigationManager Navigation
 @using System.Text.Json
 @using OnlineStore.Server.Data.Repositories
@@ -50,22 +50,15 @@
 
 
 @code {
+    [Parameter]
+    public int CustomerId { get; set; }
     public Customer Customer { get; set; }
     private ICollection<Product>? products;
     private Dictionary<int, int> _quantityToAdd = new Dictionary<int, int>();
 
     protected override async Task OnInitializedAsync()
     {
-        var uri = Navigation.Uri;
-        var uriQuery = new Uri(uri).Query;
-        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uriQuery);
-
-        // Retrieve the serialized customer JSON string from query parameters
-        if (queryParams.TryGetValue("customer", out var customerJson))
-        {
-            var decodedCustomerJson = Uri.UnescapeDataString(customerJson);
-            Customer = JsonSerializer.Deserialize<Customer>(decodedCustomerJson);
-        }
+        this.Customer = await customerRepo.ReadFullAsync(this.CustomerId);
 
         products = await productRepo.ReadAllFullAsync();
         if (products == null || products.Count == 0)
@@ -77,10 +70,10 @@
 
     private async Task AddToCart(Product product)
     {
-        if (this.Customer.Cart == null)
-        {
-            await InitializeCart();
-        }
+        // if (this.Customer.Cart == null)
+        // {
+        //     await InitializeCart();
+        // }
 
         if(this.Customer.Cart.CartItems == null)
         {
@@ -116,33 +109,33 @@
 
     private async void NavigateToCart()
     {
-        if(this.Customer.Cart == null)
-        {
-            await InitializeCart();
-        }
+        // if(this.Customer.Cart == null)
+        // {
+        //     await InitializeCart();
+        // }
 
         ICollection<Cart> myCarts = await cartRepo.FindFullAsync(c => c.CustomerId == this.Customer.Id);
         Navigation.NavigateTo($"/cartdetails/{myCarts.First().Id}");
     }
 
 
-    private async Task InitializeCart()
-    {
-        Cart cart = new Cart()
-            {
-                CustomerId = this.Customer.Id,
-                Customer = this.Customer
-            };
+    // private async Task InitializeCart()
+    // {
+    //     Cart cart = new Cart()
+    //         {
+    //             CustomerId = this.Customer.Id,
+    //             Customer = this.Customer
+    //         };
 
-        this.Customer.Cart = cart;
-        try
-        {
+    //     this.Customer.Cart = cart;
+    //     try
+    //     {
 
-            await customerRepo.UpdateAsync(this.Customer);
-            await cartRepo.CreateAsync(cart);
-        }
-        catch (Exception)
-        {
-        }
+    //         await customerRepo.UpdateAsync(this.Customer);
+    //         await cartRepo.CreateAsync(cart);
+    //     }
+    //     catch (Exception)
+    //     {
+    //     }
     }
 }
