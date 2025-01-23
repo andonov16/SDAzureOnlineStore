@@ -5,7 +5,6 @@
 @inject CartsRepository cartRepo
 @inject CartItemsRepository cartItemRepo
 
-
 <div>
     <h3>Cart Details</h3>
 
@@ -33,19 +32,25 @@
                             <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
+                            <th>Price (Each)</th>
+                            <th>Total Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in myCart.CartItems)
+                        @foreach (var item in myCartItems)
                         {
                             <tr>
                                 <td>@item.ProductId</td>
                                 <td>@item.Product?.Name</td>
                                 <td>@item.Quantity</td>
+                                <td>@item.Product?.Price.ToString("C")</td>
+                                <td>@(item.Quantity * item.Product?.Price ?? 0).ToString("C")</td>
                             </tr>
                         }
                     </tbody>
                 </table>
+
+                <h5>Total Cart Price: @TotalCartPrice.ToString("C")</h5>
             }
             else
             {
@@ -54,7 +59,6 @@
         </div>
     }
 </div>
-
 
 @code {
     [Parameter]
@@ -65,12 +69,16 @@
 
     private ICollection<CartItem> myCartItems;
 
+    public decimal TotalCartPrice { get; set; } = 0;
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
             myCart = await cartRepo.ReadFullAsync(CartId);
             myCartItems = await cartItemRepo.FindFullAsync(i => i.CartId == myCart.Id);
+            
+            TotalCartPrice = myCartItems.Sum(item => item.Quantity * (item.Product?.Price ?? 0));
         }
         catch (Exception ex)
         {

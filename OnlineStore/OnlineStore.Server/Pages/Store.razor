@@ -110,6 +110,7 @@
         await customerRepo.UpdateAsync(this.Customer);
         await cartItemRepo.UpdateAsync(toAdd);
         await cartRepo.UpdateAsync(this.Customer.Cart);
+        await productRepo.UpdateAsync(product);
 
     }
 

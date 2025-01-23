@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\pages\\store.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\pages\\store.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\model\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\model\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Model\\CartItem.cs",
-              "RelativeDocumentMoniker": "OnlineStore.Server\\Model\\CartItem.cs",
-              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Model\\CartItem.cs",
-              "RelativeToolTip": "OnlineStore.Server\\Model\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T01:54:00.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Store.razor",
-              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\Store.razor",
-              "RelativeDocumentMoniker": "OnlineStore.Server\\Pages\\Store.razor",
-              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\Store.razor",
-              "RelativeToolTip": "OnlineStore.Server\\Pages\\Store.razor",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAcwG8AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-23T01:51:15.747Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
