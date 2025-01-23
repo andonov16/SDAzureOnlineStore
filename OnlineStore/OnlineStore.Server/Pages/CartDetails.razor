@@ -4,6 +4,9 @@
 @inject NavigationManager NavigationManager
 @inject CartsRepository cartRepo
 @inject CartItemsRepository cartItemRepo
+@inject OrdersRepository orderRepo
+@inject OrderItemsRepository orderItemsRepo
+@inject ProductsRepository productRepo
 
 <div>
     <h3>Cart Details</h3>
@@ -51,6 +54,10 @@
                 </table>
 
                 <h5>Total Cart Price: @TotalCartPrice.ToString("C")</h5>
+
+                <button class="btn btn-primary" @onclick="() => CreateOrderAsync()">
+                    Order
+                </button>
             }
             else
             {
@@ -77,7 +84,7 @@
         {
             myCart = await cartRepo.ReadFullAsync(CartId);
             myCartItems = await cartItemRepo.FindFullAsync(i => i.CartId == myCart.Id);
-            
+
             TotalCartPrice = myCartItems.Sum(item => item.Quantity * (item.Product?.Price ?? 0));
         }
         catch (Exception ex)
@@ -88,5 +95,42 @@
         {
             IsLoading = false;
         }
+    }
+
+    protected async Task CreateOrderAsync()
+    {
+        string orderNumber = Guid.NewGuid().ToString();
+        Order myOrder = new Order()
+        {
+                OrderNumber = orderNumber,
+                OrderDate = DateTime.Now,
+                CustomerId = myCart.CustomerId,
+                Customer = myCart.Customer,
+                OrderItems = new List<OrderItem>(),
+                TotalAmount = this.TotalCartPrice
+        };
+        await orderRepo.CreateAsync(myOrder);
+        myOrder = (await orderRepo.FindFullAsync(o => o.OrderNumber == orderNumber)).First();
+
+        foreach (var cartItem in myCart.CartItems)
+        {
+            OrderItem newOrderItem = new OrderItem()
+            {
+                OrderId = myOrder.Id,
+                Order = myOrder,
+                ProductId = cartItem.ProductId,
+                Product = await productRepo.ReadFullAsync(cartItem.ProductId),
+                Quantity = cartItem.Quantity
+            };
+            newOrderItem.UnitPrice = newOrderItem.Product.Price * newOrderItem.Quantity;
+            myOrder.OrderItems.Add(newOrderItem);
+
+            await orderItemsRepo.CreateAsync(newOrderItem);
+            myCart.CartItems.Remove(cartItem);
+            await cartItemRepo.DeleteAsync(cartItem.Id);
+        }
+        await cartRepo.UpdateAsync(myCart);
+
+        NavigationManager.NavigateTo($"/store/{myCart.CustomerId}");
     }
 }

@@ -17,6 +17,10 @@
     <button class="btn btn-primary" @onclick="() => NavigateToCart()">
         View Cart
     </button>
+
+@*     <button class="btn btn-primary" @onclick="() => NavigateToOrders()">
+        View Orders
+    </button> *@
 }
 
 
@@ -109,33 +113,9 @@
 
     private async void NavigateToCart()
     {
-        // if(this.Customer.Cart == null)
-        // {
-        //     await InitializeCart();
-        // }
-
         ICollection<Cart> myCarts = await cartRepo.FindFullAsync(c => c.CustomerId == this.Customer.Id);
         Navigation.NavigateTo($"/cartdetails/{myCarts.First().Id}");
     }
+    
 
-
-    // private async Task InitializeCart()
-    // {
-    //     Cart cart = new Cart()
-    //         {
-    //             CustomerId = this.Customer.Id,
-    //             Customer = this.Customer
-    //         };
-
-    //     this.Customer.Cart = cart;
-    //     try
-    //     {
-
-    //         await customerRepo.UpdateAsync(this.Customer);
-    //         await cartRepo.CreateAsync(cart);
-    //     }
-    //     catch (Exception)
-    //     {
-    //     }
-    }
 }
