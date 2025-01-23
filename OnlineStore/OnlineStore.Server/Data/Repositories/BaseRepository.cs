@@ -23,11 +23,11 @@ namespace OnlineStore.Server.Data.Repositories
             await context.SaveChangesAsync();
         }
 
-        public virtual async Task<T> ReadAsync(Guid id)
+        public virtual async Task<T> ReadAsync(int id)
         {
             return await context.Set<T>().FindAsync(id);
         }
-        public virtual async Task<T> ReadFullAsync(Guid id)
+        public virtual async Task<T> ReadFullAsync(int id)
         {
             return await ReadAsync(id);
         }
@@ -48,7 +48,7 @@ namespace OnlineStore.Server.Data.Repositories
             await context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             T item = await ReadAsync(id);
 
