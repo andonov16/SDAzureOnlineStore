@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/OrderDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/University/5th_Semester/Azure/SDAzureOnlineStore/OnlineStore/OnlineStore.Server/Pages/ProductComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdENvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

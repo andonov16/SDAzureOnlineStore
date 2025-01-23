@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\pages\\cartdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\pages\\cartdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\pages\\orderdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\pages\\orderdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\pages\\store.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\pages\\store.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|d:\\university\\5th_semester\\azure\\sdazureonlinestore\\onlinestore\\onlinestore.server\\pages\\productcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C1AF71A-E100-433E-AAA4-F929AAC9CE38}|OnlineStore.Server\\OnlineStore.Server.csproj|solutionrelative:onlinestore.server\\pages\\productcomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CartDetails.razor",
+              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\CartDetails.razor",
+              "RelativeDocumentMoniker": "OnlineStore.Server\\Pages\\CartDetails.razor",
+              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\CartDetails.razor",
+              "RelativeToolTip": "OnlineStore.Server\\Pages\\CartDetails.razor",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABkAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-23T16:24:27.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDetails.razor",
+              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\OrderDetails.razor",
+              "RelativeDocumentMoniker": "OnlineStore.Server\\Pages\\OrderDetails.razor",
+              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\OrderDetails.razor",
+              "RelativeToolTip": "OnlineStore.Server\\Pages\\OrderDetails.razor",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-23T16:24:17.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductComponent.razor",
+              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\ProductComponent.razor",
+              "RelativeDocumentMoniker": "OnlineStore.Server\\Pages\\ProductComponent.razor",
+              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\ProductComponent.razor",
+              "RelativeToolTip": "OnlineStore.Server\\Pages\\ProductComponent.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-23T16:24:04.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Store.razor",
+              "DocumentMoniker": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\Store.razor",
+              "RelativeDocumentMoniker": "OnlineStore.Server\\Pages\\Store.razor",
+              "ToolTip": "D:\\University\\5th_Semester\\Azure\\SDAzureOnlineStore\\OnlineStore\\OnlineStore.Server\\Pages\\Store.razor",
+              "RelativeToolTip": "OnlineStore.Server\\Pages\\Store.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-23T16:24:00.495Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -18,9 +18,10 @@
         View Cart
     </button>
 
-@*     <button class="btn btn-primary" @onclick="() => NavigateToOrders()">
+    <button class="btn btn-primary" @onclick="() => NavigateToOrders()">
         View Orders
-    </button> *@
+    </button>
+
 }
 
 
@@ -117,5 +118,8 @@
         Navigation.NavigateTo($"/cartdetails/{myCarts.First().Id}");
     }
     
-
+    private async void NavigateToOrders()
+    {
+        Navigation.NavigateTo($"/customerorders/{this.Customer.Id}");
+    }
 }

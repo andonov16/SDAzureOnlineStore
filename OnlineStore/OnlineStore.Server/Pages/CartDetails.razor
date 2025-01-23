@@ -23,7 +23,7 @@
     {
         <div>
             <h4>Customer Information</h4>
-            <p><strong>Customer Name:</strong> @myCart.Customer?.FullName</p> <!-- Assuming Customer has a Name property -->
+            <p><strong>Customer Name:</strong> @myCart.Customer?.FullName</p>
 
             <h4>Cart Items</h4>
 
@@ -47,7 +47,7 @@
                                 <td>@item.Product?.Name</td>
                                 <td>@item.Quantity</td>
                                 <td>@item.Product?.Price.ToString("C")</td>
-                                <td>@(item.Quantity * item.Product?.Price ?? 0).ToString("C")</td>
+                                <td>@(item.Quantity * item.Product?.Price ?? 0).</td>
                             </tr>
                         }
                     </tbody>
