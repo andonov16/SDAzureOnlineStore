@@ -1,0 +1,141 @@
+﻿@page "/store"
+@inject NavigationManager Navigation
+@using System.Text.Json
+@using OnlineStore.Server.Data.Repositories
+@using OnlineStore.Server.Model
+@inject ProductsRepository productRepo;
+@inject CustomersRepository customerRepo;
+@inject CartsRepository cartRepo;
+@inject CartItemsRepository cartItemRepo;
+
+@if(Customer != null)
+{
+    <h3>Welcome, @Customer.FullName</h3>
+    <p>Email: @Customer.Email</p>
+    <p>Address: @Customer.Address</p>
+
+    <button class="btn btn-primary" @onclick="() => NavigateToCart()">
+        View Cart
+    </button>
+}
+
+
+
+
+<h3>Our Products</h3>
+
+@if(products != null)
+{
+    <div class="product-list">
+        @foreach (var product in products)
+        {
+            <div class="product-details">
+                <h4>@product.Name</h4>
+                <p><strong>Category:</strong> @product.Category</p>
+                <p><strong>Description:</strong> @product.Description</p>
+                <p><strong>Price:</strong> @string.Format("{0:C}", product.Price)</p>
+                <p><strong>Quantity Available:</strong> @product.Quantity</p>
+
+                @*                 <div class="quantity-input">
+                    <label for="quantity-@product.Id">Quantity to Add:</label>
+                    <input type="number" id="quantity-@product.Id" min="1" max="@product.Quantity" @bind="_quantityToAdd[product.Id]" class="form-control" />
+                </div> *@
+
+                <button class="btn btn-primary" @onclick="() => AddToCart(product)">Add to Cart</button>
+            </div>
+        }
+    </div>
+}
+
+
+
+@code {
+    public Customer Customer { get; set; }
+    private ICollection<Product>? products;
+    private Dictionary<int, int> _quantityToAdd = new Dictionary<int, int>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = Navigation.Uri;
+        var uriQuery = new Uri(uri).Query;
+        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uriQuery);
+
+        // Retrieve the serialized customer JSON string from query parameters
+        if (queryParams.TryGetValue("customer", out var customerJson))
+        {
+            var decodedCustomerJson = Uri.UnescapeDataString(customerJson);
+            Customer = JsonSerializer.Deserialize<Customer>(decodedCustomerJson);
+        }
+
+        products = await productRepo.ReadAllFullAsync();
+        if (products == null || products.Count == 0)
+        {
+            Console.WriteLine("No products found.");
+        }
+    }
+
+
+    private async Task AddToCart(Product product)
+    {
+        if (this.Customer.Cart == null)
+        {
+            await InitializeCart();
+        }
+
+        if(this.Customer.Cart.CartItems == null)
+        {
+            this.Customer.Cart.CartItems = new List<CartItem>();
+        }
+
+        CartItem? toAdd = this.Customer.Cart.CartItems.FirstOrDefault(i => i.ProductId == product.Id);
+        if(toAdd == null)
+        {
+            toAdd = new CartItem()
+                {
+                    CartId = this.Customer.Cart.Id,
+                    Cart = this.Customer.Cart,
+                    ProductId = product.Id,
+                    Product = product,
+                    Quantity = 1
+                };
+            this.Customer.Cart.CartItems.Add(toAdd);
+            await cartItemRepo.CreateAsync(toAdd);
+        }
+        else
+        {
+            toAdd.Quantity += 1;
+        }
+        product.Quantity -= 1;
+
+        await customerRepo.UpdateAsync(this.Customer);
+        await cartItemRepo.UpdateAsync(toAdd);
+        await cartRepo.UpdateAsync(this.Customer.Cart);
+        await productRepo.UpdateAsync(product);
+
+    }
+
+    private async void NavigateToCart()
+    {
+        if(this.Customer.Cart == null)
+        {
+            await InitializeCart();
+        }
+
+        ICollection<Cart> myCarts = await cartRepo.FindFullAsync(c => c.CustomerId == this.Customer.Id);
+        Navigation.NavigateTo($"/cartdetails/{myCarts.First().Id}");
+    }
+
+
+    private async Task InitializeCart()
+    {
+        Cart cart = new Cart()
+            {
+                CustomerId = this.Customer.Id,
+                Customer = this.Customer
+            };
+
+        this.Customer.Cart = cart;
+        await cartRepo.CreateAsync(cart);
+        await customerRepo.UpdateAsync(this.Customer);
+    }
+}

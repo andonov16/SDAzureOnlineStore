@@ -1,0 +1,92 @@
+﻿@page "/cartdetails/{CartId:int}"
+@using OnlineStore.Server.Data.Repositories
+@using OnlineStore.Server.Model
+@inject NavigationManager NavigationManager
+@inject CartsRepository cartRepo
+@inject CartItemsRepository cartItemRepo
+
+<div>
+    <h3>Cart Details</h3>
+
+    @if (IsLoading)
+    {
+        <p>Loading...</p>
+    }
+    else if (myCart == null)
+    {
+        <p>No cart data available.</p>
+    }
+    else
+    {
+        <div>
+            <h4>Customer Information</h4>
+            <p><strong>Customer Name:</strong> @myCart.Customer?.FullName</p> <!-- Assuming Customer has a Name property -->
+
+            <h4>Cart Items</h4>
+
+            @if (myCartItems != null && myCartItems.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price (Each)</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in myCartItems)
+                        {
+                            <tr>
+                                <td>@item.ProductId</td>
+                                <td>@item.Product?.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Product?.Price.ToString("C")</td>
+                                <td>@(item.Quantity * item.Product?.Price ?? 0).ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <h5>Total Cart Price: @TotalCartPrice.ToString("C")</h5>
+            }
+            else
+            {
+                <p>No items in the cart.</p>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int CartId { get; set; }
+
+    public Cart myCart { get; set; }
+    public bool IsLoading { get; set; } = true;
+
+    private ICollection<CartItem> myCartItems;
+
+    public decimal TotalCartPrice { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            myCart = await cartRepo.ReadFullAsync(CartId);
+            myCartItems = await cartItemRepo.FindFullAsync(i => i.CartId == myCart.Id);
+            
+            TotalCartPrice = myCartItems.Sum(item => item.Quantity * (item.Product?.Price ?? 0));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching cart: {ex.Message}");
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+}
